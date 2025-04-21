@@ -1,36 +1,57 @@
+// فایل اصلی برای شروع پروژه gptshid
+
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ToolCard from "../components/ToolCard";
-import FeatureCard from "../components/FeatureCard";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function HomePage() {
   return (
-    <div className="bg-gray-950 text-white">
-      <Header />
-      <section className="text-center py-20">
-        <h1 className="text-4xl font-bold mb-4">هوش ایرانی، قدرت جهانی!</h1>
-        <p className="text-lg mb-6">پلتفرم هوش مصنوعی با اصالت شاهانه</p>
-        <a href="/login" className="bg-sky-500 px-6 py-3 rounded-lg">ثبت‌نام – شروع رایگان</a>
-      </section>
+    <div className="min-h-screen bg-gradient-to-br from-zinc-900 to-black text-white p-4">
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-yellow-400">GPTShid</h1>
+        <p className="text-lg text-zinc-300 mt-2">
+          تولید محتوای هوشمند، پرامپت طلایی، مشاوره، تبلیغات، پاسخ‌دهی خودکار و بیشتر!
+        </p>
+      </header>
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 px-10 py-10">
-        <FeatureCard title="تولید محتوا" />
-        <FeatureCard title="پرامپت‌ساز" />
-        <FeatureCard title="عکس از متن" />
-        <FeatureCard title="درآمدزایی" />
-      </section>
+      <main className="max-w-4xl mx-auto">
+        <Tabs defaultValue="content" className="w-full">
+          <TabsList className="grid grid-cols-3 bg-zinc-800 rounded-xl p-1">
+            <TabsTrigger value="content">تولید محتوا</TabsTrigger>
+            <TabsTrigger value="image">تولید تصویر</TabsTrigger>
+            <TabsTrigger value="consult">مشاوره</TabsTrigger>
+          </TabsList>
 
-      <section className="px-10 py-10 bg-slate-800">
-        <h2 className="text-2xl font-bold mb-6">ابزارهای ما</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <ToolCard title="چت با GPT" link="/chat" />
-          <ToolCard title="تولید تصویر" link="/image-generator" />
-          <ToolCard title="داشبورد درآمد" link="/dashboard" />
-        </div>
-      </section>
+          <TabsContent value="content">
+            <Card className="bg-zinc-800 mt-4">
+              <CardContent className="p-4 space-y-4">
+                <Input placeholder="موضوع محتوا را وارد کنید..." className="text-black" />
+                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black">تولید محتوا</Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
 
-      <Footer />
+          <TabsContent value="image">
+            <Card className="bg-zinc-800 mt-4">
+              <CardContent className="p-4 space-y-4">
+                <Input placeholder="توضیح تصویر را بنویسید..." className="text-black" />
+                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black">تولید تصویر</Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="consult">
+            <Card className="bg-zinc-800 mt-4">
+              <CardContent className="p-4 space-y-4">
+                <Input placeholder="سؤال خود را وارد کنید..." className="text-black" />
+                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black">دریافت پاسخ</Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
+      </main>
     </div>
   );
 }
