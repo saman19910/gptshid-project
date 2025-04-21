@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const navigate = useNavigate();
+  const navigate = useNavigate("/dashboard");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
